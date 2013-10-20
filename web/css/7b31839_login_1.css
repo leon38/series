@@ -1,0 +1,38 @@
+body {
+	overflow: hidden;
+}
+
+div#login {
+	width:515px;
+	height:600px;
+	margin:15% auto;
+	position: relative;
+	text-align: center;
+}
+
+
+div#login form {
+	width:auto;
+	margin: auto;
+}
+
+div#login input[type="text"],div#login input[type="password"]  {
+	height:33px;
+	line-height: 33px;
+}
+
+
+.btn-login {
+	border:none;
+	background: #ff6600;
+	color:#fff;
+	border-radius: 0px 4px 4px 0;
+	height:29px;
+	line-height: 29px;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+	margin-left:-5px;
+	position: relative;
+	z-index:1;
+}

@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="container">
+			<h1>{{ titre }}</h1>
+			<p>{{ message|raw }}</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

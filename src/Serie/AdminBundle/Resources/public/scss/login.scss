@@ -1,0 +1,78 @@
+@import "fonts";
+
+body {
+	background: #2B2E38;
+}
+
+div#login {
+	width:340px;
+	height:200px;
+	margin:15% auto;
+	position: relative;
+	text-align: center;
+	background: #2B2E38;
+	padding:20px;
+
+}
+
+
+div#login form {
+	width:auto;
+	margin: auto;
+	position: relative;
+}
+
+div#login input {
+	border-radius:4px;
+	height:45px;
+	line-height: 45px;
+	position: relative;
+	color: #fff;
+	width:300px;
+	border:none;
+	margin: 0 0 5px;
+}
+
+div#login input:focus {
+	outline: none;
+	border:none;
+}
+
+div#login input[type="text"],div#login input[type="password"]  {
+	padding: 0 0 0 40px;
+	background: #3B4148;
+	
+}
+
+div#login i.li_user {
+	position: absolute;
+	left: 0px;
+	color: #fff;
+	top: 0;
+	font-size: 16px;
+	background: #363B41;
+	width: 35px;
+	height: 45px;
+	line-height: 45px;
+	border-radius: 4px 0 0 4px;
+}
+
+div#login i.li_lock {
+	position: absolute;
+	left: 0px;
+	color: #fff;
+	top: 50px;
+	font-size: 16px;
+	background: #363B41;
+	width: 35px;
+	height: 45px;
+	line-height: 45px;
+	border-radius: 4px 0 0 4px;
+}
+
+.btn-login {
+	background: #EA4C88;
+	text-align: center;
+	font-weight:bold;
+	font-family: ColaborateBoldRegular, Arial, sans-serif;
+}

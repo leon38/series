@@ -1,0 +1,103 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    #esi:             ~
+    #translator:      { fallback: %locale% }
+    secret:          %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:         ~
+    fragments:       ~
+    http_method_override: true
+    validation: { enable_annotations: true }
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+    form:
+        resources:
+            - '::fields.html.twig'
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        [SerieSerieBundle, SerieAdminBundle]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        #closure:
+        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
+        #yui_css:
+        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: %kernel.root_dir%/data/data.db3
+        # path:     %database_path%
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
+        mappings:
+            tree:
+                type: annotation
+                alias: Gedmo
+                prefix: Gedmo\Tree\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+
+
+liip_imagine:
+    filter_sets:
+        big_feature:
+            quality: 100
+            filters:
+                thumbnail: { size: [1140, 2000], mode: inset }
+                crop: { start: [0, 0], size: [1140, 500] }
+        thumb:
+            quality: 100
+            filters:
+                thumbnail: { size: [149, 220], mode: outbound }
+                crop: { start: [0, 0], size: [149,220] }
+        thumb_md:
+            quality: 100
+            filters:
+                thumbnail: { size: [210, 287], mode: outbound }
+        thumb_sm:
+            quality: 100
+            filters:
+                thumbnail: { size: [142, 220], mode: inset }
+        thumb_avatar:
+            quality: 100
+            filters:
+                thumbnail: { size: [90, 90], mode: inset }
+                crop: { start: [0,0], size: [90, 90] }

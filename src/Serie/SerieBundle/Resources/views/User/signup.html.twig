@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<div class="row">
+	<div class="container">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			{% if app.session.flashbag.has('success') %}
+				<div class="clear h20"></div>
+			    <div class="alert alert-success">
+			  		<a class="close" data-dismiss="alert" href="#">×</a>
+			        <ul class="unstyled">
+			  		{% for message in app.session.flashbag.get('success') %}
+			        	<li>{{ message }}</li>
+			        {% endfor %}
+			    	</ul>
+			    </div>
+			{% endif %}
+			<h1>{{ title }}</h1>
+			{% if form is defined %}
+				{{ form(form) }}
+			{% else %}
+				{{ message|raw }}
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

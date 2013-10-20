@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<div class="row top--2">
+	{% for show in showsHome %}
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center top--2">
+			<img src="{{ show.bigFeature|imagine_filter('big_feature') }}" alt="{{ show.title }}" />
+		</div>
+	{% endfor %}
+	</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 back-dark">
+		<div class="container">
+			<h2>Last added</h2>
+			<div class="row">
+				{% for show in shows %}
+					<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 bottom-2">
+						<a href="{{ path('serie', {'alias': show.alias}) }}"><img src="{{ show.feature|imagine_filter('thumb') }}"  alt="{{ show.title }}" /></a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Netflix Login</title>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+        {% block stylesheets %}
+		{% stylesheets 
+		    'bundles/serieadmin/css/login.css' output='css/compiled/main.css'
+		%}
+		   <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+		{% endstylesheets %}
+		{% endblock stylesheets %}
+		<script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+
+{% block body %}
+	<body>
+		<div id="login">
+			<div class="sep3"></div>
+			{% if error %}
+	    		<div class="alert alert-danger alert-dismissable">
+					<button class="close" data-dismiss="alert" type="button">×</button>
+					{{ error.message }}
+				</div>
+			{% endif %}
+			<form action="{{ path('login_check') }}" method="post">
+				<input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Username" />
+				<i class="li_user"></i>
+				<input type="password" id="password" name="_password" placeholder="Password" />
+				<i class="li_lock"></i>
+				<input type="checkbox" id="remember_me" name="_remember_me" checked />
+    			<label for="remember_me">Keep me logged in</label>
+				<input type="submit" name="login" class="btn-login" value="Valider" />
+
+			</form>
+		</div>
+	</body>
+{% endblock body %}
+
+</html>

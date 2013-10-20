@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+	{% if error %}
+		<div class="alert alert-danger alert-dismissable">
+			<button class="close" data-dismiss="alert" type="button">×</button>
+			{{ error.message }}
+		</div>
+	{% endif %}
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="container">
+			<div id="login" class="col-lg-4 col-lg-offset-4">
+				<h2>Login</h2>
+				<form action="{{ path('front_login_check') }}" method="post" role="form">
+					<input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Username" />
+					<i class="li_user"></i>
+					<input type="password" id="password" name="_password" placeholder="Password" />
+					<i class="li_lock"></i>
+					
+					<input type="hidden" name="_target_path" value="http://series-local.com/en/home" />
+					<input type="submit" name="login" class="btn-login" value="Valider" />
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}{{ title }}{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        {% block menu %}
+            {% include "::admin_menu.html.twig" %}
+        {% endblock %}
+        {% block body %}
+        <div class="container">
+            <h1 class="pull-left">{{ title }}</h1>
+            {% if link_new is defined %}
+                <div class="actions pull-right">
+                    <a href="{{ path(link_new) }}" class="btn btn-new">{% trans %}New {% endtrans %}</a>
+                </div>
+            {% endif %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        {% for col in columns %}
+                            <th>{{ col.name }}</th>
+                        {% endfor %}
+                        {% if link_edit is defined %}   
+                            <th colspan="2">Actions</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in datas %}
+                    <tr>
+                    {% for col in columns %}
+                        <td>{{ attribute(data,col.entity)|raw }}</td>
+                    {% endfor %}
+                    {% if link_edit is defined %}
+                        <td><a href="{{ path(link_edit, {'id': data.id}) }}">Edit</a></td>
+                        <td><a href="{{ path(link_delete, {'id': data.id }) }}">Delete</a></td>
+                    {% endif %} 
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>  
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div> 
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

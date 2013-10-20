@@ -1,0 +1,43 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<div class="row">
+<div class="container">
+<div class="row">
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+		<img src="{{ asset(show.feature) }}" alt="{{ show.title }}" />
+	</div>
+	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<h1>{{ show.title }} 
+			<span class="years">
+			({{ show.startdate|date('Y') ~ " - " }}
+			{% if show.endDate|date('m/d/Y') != "01/01/1893" %}
+				{{ show.endDate|date('Y') ~ ")" }}
+			{% else %}
+				)	
+			{% endif %}
+			</span>
+		</h1>
+		<p class="infos">
+			{{ show.formatEpisode }} | {{ show.genresFront|raw }}
+		</p>
+		<p class="justify">{{ show.synopsis }}</p>
+		<p><strong>Actors : </strong>{{ show.actorsLink|raw }}</p>
+		<div class="well well-sm">
+			<h3>Infos</h3>
+		
+			<dl class="dl-horizontal">
+				<dt>Country</dt>
+				<dd>{{ show.nationality }}</dd>
+				<dt>Channel</dt>
+				<dd>{{ show.channel }}</dd>
+				<dt># Seasons</dt>
+				<dd>{{ show.nbSeasons }}</dd>
+				<dt># Episodes</dt>
+				<dd>{{ show.nbEpisodes }}</dd>
+			</dl>
+		</div>
+	</div>
+	</div>
+	</div>
+</div>
+{% endblock body %}

@@ -1,0 +1,3 @@
+serie_serie_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SerieSerieBundle:Default:index }

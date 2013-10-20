@@ -1,0 +1,7 @@
+parameters:
+#    serie_serie.example.class: Serie\SerieBundle\Example
+
+services:
+#    serie_serie.example:
+#        class: %serie_serie.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

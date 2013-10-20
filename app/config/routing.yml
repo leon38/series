@@ -1,0 +1,34 @@
+serie_serie:
+    resource: "@SerieSerieBundle/Controller"
+    type: annotation
+    prefix:   /en/
+
+serie_admin:
+    resource: "@SerieAdminBundle/Controller"
+    type: annotation
+    prefix:   /admin/
+
+_imagine:
+    resource: .
+    type:     imagine
+
+_security_login_admin:
+    pattern:  /admin/login
+    defaults: { _controller: Serie:AdminBundle:LoginController }
+
+_security_check_admin:
+    pattern:  /admin/login_check
+
+_security_logout_admin:
+    pattern:  /admin/logout
+
+
+_security_login:
+    pattern:  /en/user/login
+    defaults: { _controller: Serie:SerieBundle:UserFrontController }
+
+_security_check_admin:
+    pattern:  /en/user/login_check
+
+_security_logout_admin:
+    pattern:  /en/user/logout
